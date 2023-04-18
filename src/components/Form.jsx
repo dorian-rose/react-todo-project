@@ -1,8 +1,8 @@
-import { useTodoList } from "../hooks/useTodoList";
+//import { useTodoList } from "../hooks/useTodoList";
 
-export const Form = () => {
-  const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
-    useTodoList();
+export const Form = ({ handleNewTodo }) => {
+  //   const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
+  //     useTodoList();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
