@@ -5,11 +5,11 @@ import { EntryContainer } from "./EntryContainer";
 export const Container = () => {
   return (
     <>
+      <div>
+        <h1>Todo List</h1>
+      </div>
       <Form />
       <EntryContainer />
-
-      <p>hola</p>
-      <h1>Hello again</h1>
     </>
   );
 };

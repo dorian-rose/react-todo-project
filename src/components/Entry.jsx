@@ -1,9 +1,10 @@
-export const Entry = () => {
+export const Entry = ({ todo }) => {
+  console.log(todo);
   return (
     <>
       <article>
-        <h3>Insertar tarea nombrea qui</h3>
-        <p>Insertar tarea desc. aqui</p>
+        <h3>{todo.tarea}</h3>
+        <p>{todo.description}</p>
       </article>
     </>
   );
