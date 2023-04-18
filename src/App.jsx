@@ -1,12 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Container } from "./components/Container";
 
 function App() {
-  const [count, setCount] = useState(0);
+  return (
+    <>
+      <header className="bg-dark txt-cntr pd-md">Practice</header>
+      <main>
+        <Container />
+      </main>
 
-  return <div className="App">Hello</div>;
+      <footer className="bg-dark txt-cntr">Footer</footer>
+    </>
+  );
 }
 
 export default App;
