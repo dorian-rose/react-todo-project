@@ -1,16 +1,25 @@
-import React from "react";
+//import { useTodoList } from "../hooks/useTodoList";
 import { Entry } from "./Entry";
-import { useTodoList } from "../hooks/useTodoList";
 
-export const EntryContainer = () => {
-  const { todos } = useTodoList();
-
+export const EntryContainer = ({
+  todos,
+  handleToggleTodo,
+  handleDeleteTodo,
+}) => {
+  console.log(todos);
   return (
     <section>
       <h2>Tareas</h2>
-      {todos.map((todo) => (
-        <Entry key={todo.tarea} todo={todo} />
-      ))}
+      <ul>
+        {todos.map((todo) => (
+          <Entry
+            key={todo.id}
+            todo={todo}
+            handleToggleTodo={handleToggleTodo}
+            handleDeleteTodo={handleDeleteTodo}
+          />
+        ))}
+      </ul>
     </section>
   );
 };
