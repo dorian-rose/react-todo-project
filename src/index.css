@@ -54,6 +54,16 @@ textarea {
   margin-right: 20px;
 }
 
+/* component Entry */
+article {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(193, 197, 193);
+  border-radius: 5px;
+  margin: 0 20px;
+  padding: 5px;
+}
+
 button {
   margin-left: 20px;
   margin-right: 20px;
@@ -61,6 +71,10 @@ button {
   border-radius: 5px;
   border: solid green;
   color: white;
+}
+button.delete-button {
+  background-color: red;
+  border: solid red;
 }
 
 button.true {
@@ -70,21 +84,21 @@ button.true {
 h3 {
   display: inline;
   margin: 10px;
+  font-weight: 600;
+}
+h3.true,
+p.true {
+  color: rgb(133, 135, 133);
 }
 
 p {
   display: inline;
   margin: 10px 0;
 }
-h3.true {
-  color: rgb(133, 135, 133);
-}
 
 h2 {
-  font-size: 18px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
+  font-size: 24px;
+  margin: 20px 20px 10px 20px;
 }
 
 
