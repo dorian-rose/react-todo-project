@@ -10,16 +10,15 @@ export const EntryContainer = ({
   return (
     <section>
       <h2>Tareas</h2>
-      <ul>
-        {todos.map((todo) => (
-          <Entry
-            key={todo.id}
-            todo={todo}
-            handleToggleTodo={handleToggleTodo}
-            handleDeleteTodo={handleDeleteTodo}
-          />
-        ))}
-      </ul>
+
+      {todos.map((todo) => (
+        <Entry
+          key={todo.id}
+          todo={todo}
+          handleToggleTodo={handleToggleTodo}
+          handleDeleteTodo={handleDeleteTodo}
+        />
+      ))}
     </section>
   );
 };

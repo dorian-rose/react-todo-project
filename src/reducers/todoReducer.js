@@ -1,7 +1,7 @@
 
 
 export const todoReducer = (state, action) => {
-    console.log(state)
+
     switch (action.type) {
         case '[TODO] add to do':
 
@@ -16,6 +16,7 @@ export const todoReducer = (state, action) => {
             //cambiará la propiedad done de true a false o de false a true
             const index = state.findIndex(todo => todo.id !== action.payload); //finding index of the item
             const newArray = [...state]; //making a new array
+            console.log(newArray)
             if (newArray[index].done == false) {
                 newArray[index].done = true
             }//changing value in the new array
