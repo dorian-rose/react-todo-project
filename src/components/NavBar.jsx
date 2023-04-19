@@ -23,7 +23,7 @@ export const NavBar = () => {
               `nav-link ${isActive ? "isActive" : ""} `
             }
           >
-            Form
+            To do list
           </NavLink>
         </li>
         <li className="nav-link ">
