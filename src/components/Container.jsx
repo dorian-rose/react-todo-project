@@ -2,6 +2,7 @@ import { Form } from "./Form";
 import { EntryContainer } from "./EntryContainer";
 import { useTodoList } from "../hooks/useTodoList";
 
+//Container contains all components for todo list
 export const Container = () => {
   const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
     useTodoList();
