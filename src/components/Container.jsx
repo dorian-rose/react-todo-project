@@ -5,7 +5,7 @@ import { useTodoList } from "../hooks/useTodoList";
 export const Container = () => {
   const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
     useTodoList();
-  console.log("cont", todos);
+
   return (
     <>
       <div>

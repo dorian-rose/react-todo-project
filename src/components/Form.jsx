@@ -19,7 +19,7 @@ export const Form = ({ handleNewTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="flex" onSubmit={handleSubmit}>
       <input type="text" id="tarea" name="tarea" placeholder="Tarea" />
       <textarea
         name="description"
