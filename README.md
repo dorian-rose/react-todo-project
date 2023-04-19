@@ -1,18 +1,23 @@
 # react-todo-project
-A todo list in react
 
+## A to do list in React
 
-start proyect 
+Dependencies (and versions) used:
 
-enter the folder 
+- "react": "^18.2.0",
+- "react-dom": "^18.2.0",
+- "react-router-dom": "^6.10.0"
 
-install yarn = (write yarn in the terminal)
+(as per package.json)
 
-start the program = (write yarn dev in the terminal)
+To start project:
 
-open localhost
+- In terminal, navigate to the folder with the project
 
-ready to start!
+- install yarn = (write 'yarn' in the terminal)
 
+- start the program = (write 'yarn dev' in the terminal)
 
+- open localhost with port number as directed by prompts in terminal
 
+- ready to start!
