@@ -6,6 +6,7 @@ export const Form = ({ handleNewTodo }) => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
+
     const newTodo = {
       id: Date.now(),
       todo: ev.target.tarea.value,
@@ -13,6 +14,7 @@ export const Form = ({ handleNewTodo }) => {
       done: false,
       date: new Date(),
     };
+
     handleNewTodo(newTodo);
     ev.target.tarea.value = "";
     ev.target.description.value = "";

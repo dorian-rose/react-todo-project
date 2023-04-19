@@ -11,8 +11,6 @@ export const useTodoList = () => {
 
     const [todos, dispatch] = useReducer(todoReducer, [], init);//init - up to local here
 
-    console.log(todos)
-
 
     //set local when change to todos, using useEffect
     useEffect(() => {
