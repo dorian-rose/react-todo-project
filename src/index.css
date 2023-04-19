@@ -86,3 +86,28 @@ h2 {
   margin-right: 20px;
   margin-top: 20px;
 }
+
+
+.isActive {
+  color: rgb(29, 129, 29);
+}
+
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+  text-decoration: none;
+  
+}
+
+li  {
+  padding: 20px 40px;
+  text-decoration: none;
+}
+
+li a {
+  color: grey;
+  text-decoration: none;
+}
