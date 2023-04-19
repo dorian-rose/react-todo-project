@@ -3,13 +3,22 @@
 export const Entry = ({ todo, handleToggleTodo, handleDeleteTodo }) => {
   // const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
   //   useTodoList();
+
   return (
     <>
       <article>
-        <h3>{todo.todo}</h3>
-        <p>{todo.description}</p>
-        <button onClick={() => handleToggleTodo(todo.id)}>Finalizar</button>
-        <button onClick={() => handleDeleteTodo(todo.id)}>Eliminar</button>
+        <div className="flex">
+          <h3 className={todo.done.toString()}>{todo.todo}</h3>
+          <p>- {todo.description}</p>
+
+          <button
+            className={todo.done.toString()}
+            onClick={() => handleToggleTodo(todo.id)}
+          >
+            Finalizar
+          </button>
+          <button onClick={() => handleDeleteTodo(todo.id)}>Eliminar</button>
+        </div>
       </article>
     </>
   );
