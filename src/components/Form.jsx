@@ -18,9 +18,11 @@ export const Form = ({ handleNewTodo }) => {
     ev.target.description.value = "";
   };
 
+
+
   return (
     <form className="flex" onSubmit={handleSubmit}>
-      <input type="text" id="tarea" name="tarea" placeholder="Tarea" />
+      <input type="text" id="tarea" name="tarea" placeholder="Tarea"  />
       <textarea
         name="description"
         id="description"
