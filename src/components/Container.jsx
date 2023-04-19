@@ -1,15 +1,22 @@
-import React from "react";
 import { Form } from "./Form";
 import { EntryContainer } from "./EntryContainer";
+import { useTodoList } from "../hooks/useTodoList";
 
 export const Container = () => {
+  const { todos, handleDeleteTodo, handleNewTodo, handleToggleTodo } =
+    useTodoList();
+
   return (
     <>
-      <Form />
-      <EntryContainer />
-
-      <p>hola</p>
-      <h1>Hello again</h1>
+      <div>
+        <h1 className="title">Lista de tareas</h1>
+      </div>
+      <Form handleNewTodo={handleNewTodo} />
+      <EntryContainer
+        todos={todos}
+        handleToggleTodo={handleToggleTodo}
+        handleDeleteTodo={handleDeleteTodo}
+      />
     </>
   );
 };
