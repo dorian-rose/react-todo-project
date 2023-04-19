@@ -54,6 +54,10 @@ textarea {
   margin-right: 20px;
 }
 
+p.error-message {
+  margin: 20px;
+}
+
 /* component Entry */
 article {
   display: flex;
@@ -91,7 +95,7 @@ p.true {
   color: rgb(133, 135, 133);
 }
 
-p {
+.task p {
   display: inline;
   margin: 10px 0;
 }
@@ -101,11 +105,9 @@ h2 {
   margin: 20px 20px 10px 20px;
 }
 
-
 .isActive {
   color: rgb(29, 129, 29);
 }
-
 
 ul {
   display: flex;
@@ -113,10 +115,9 @@ ul {
   list-style: none;
   justify-content: center;
   text-decoration: none;
-  
 }
 
-li  {
+li {
   padding: 20px 40px;
   text-decoration: none;
 }

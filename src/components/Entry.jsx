@@ -10,7 +10,7 @@ export const Entry = ({ todo, handleToggleTodo, handleDeleteTodo }) => {
   return (
     <>
       <article>
-        <div>
+        <div className="task">
           <h3 className={todo.done.toString()}>{todo.todo}</h3>
           <p className={todo.done.toString()}>- {todo.description}</p>
         </div>
