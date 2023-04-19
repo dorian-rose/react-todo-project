@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Container, Homepages, Services } from "./components";
+import { Container, Homepages, Services, LoginPage } from "./components";
 // import { Router } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 
@@ -13,6 +13,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepages />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/todo" element={<Container />} />
           <Route path="/services" element={<Services />} />
         </Routes>

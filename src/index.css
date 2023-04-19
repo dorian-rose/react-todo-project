@@ -28,6 +28,16 @@
   color: white;
 }
 
+.text-centre {
+  text-align: center;
+}
+
+.login {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+}
+
 footer {
   margin-top: 40px;
 }
@@ -38,11 +48,21 @@ form {
   height: 100%;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   margin-bottom: 10px;
   padding: 15px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.login-form input,
+.login-form input,
+.login-form button {
+  max-width: fit-content;
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
 }
 
 textarea {
@@ -126,3 +146,51 @@ li a {
   color: grey;
   text-decoration: none;
 }
+
+/* Menu */
+/* nav {
+  z-index: 7;
+  position: fixed;
+  width: 100%;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+}
+nav div a {
+  line-height: 60px;
+  color: white;
+}
+
+nav div i {
+  font-size: 30px;
+}
+
+nav ul {
+  display: fixed;
+  width: 100%;
+  left: 100%; 
+  background-color: #f0f0f0;
+  transition: ease-in-out 0.5s;
+}
+nav button {
+  border: none;
+  font-size: 20px;
+}
+.appear {
+  left: 0;
+}
+
+nav li a {
+  display: block;
+  color: var(--dark);
+  font-weight: 300;
+  width: 100%;
+  padding: 1rem;
+}
+
+nav li a:hover {
+  background-color: var(--dark);
+  color: var(--light);
+} */
