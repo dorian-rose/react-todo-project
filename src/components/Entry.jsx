@@ -6,12 +6,10 @@ export const Entry = ({ todo, handleToggleTodo, handleDeleteTodo }) => {
   return (
     <>
       <article>
-        <li>
-          <h3>{todo.todo}</h3>
-          <p>{todo.description}</p>
-          <button onClick={() => handleToggleTodo(todo.id)}>Finalizar</button>
-          <button onClick={() => handleDeleteTodo(todo.id)}>Eliminar</button>
-        </li>
+        <h3>{todo.todo}</h3>
+        <p>{todo.description}</p>
+        <button onClick={() => handleToggleTodo(todo.id)}>Finalizar</button>
+        <button onClick={() => handleDeleteTodo(todo.id)}>Eliminar</button>
       </article>
     </>
   );
