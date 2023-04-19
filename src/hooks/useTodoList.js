@@ -1,6 +1,6 @@
-import { useReducer } from 'react'
-
+import { useEffect, useReducer } from 'react'
 import { todoReducer } from "../reducers/todoReducer"
+
 
 import { getLocal } from '../../helper/localStorage';
 
@@ -10,7 +10,17 @@ const init = () => getLocal()
 export const useTodoList = () => {
 
     const [todos, dispatch] = useReducer(todoReducer, [], init);//init - up to local here
+    
     console.log(todos)
+
+    //set local
+    const setLocal = () => {
+        return localStorage.setItem("todoArray", JSON.stringify(todos));
+    };
+    //set local when change to todos, using useEffect
+    useEffect(() => {
+        setLocal()
+    }, [todos])
 
 
     const handleNewTodo = (newTodo) => {
@@ -41,8 +51,6 @@ export const useTodoList = () => {
         dispatch(action)
     }
 
-    // const newList = useReducer([], action)
-    // console.log(newList)
     return {
         todos,
         handleDeleteTodo,
