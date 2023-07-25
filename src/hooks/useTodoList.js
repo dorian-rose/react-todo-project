@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react'
 import { todoReducer } from "../reducers/todoReducer"
 
 
-import { getLocal, setLocal } from '../../helper/localStorage';
+import { getLocal, setLocal } from '../helper/localStorage';
 
 const init = () => getLocal()
 
