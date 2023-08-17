@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { Logout } from "../../auth/components/Logout";
 
 export const NavBar = () => {
   return (
@@ -27,14 +27,7 @@ export const NavBar = () => {
           </NavLink>
         </li>
         <li className="nav-link ">
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `nav-link ${isActive ? "isActive" : ""} `
-            }
-          >
-            Services
-          </NavLink>
+          <Logout />
         </li>
       </ul>
     </nav>

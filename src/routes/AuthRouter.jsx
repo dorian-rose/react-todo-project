@@ -6,6 +6,7 @@ export const AuthRouter = () => {
       <Route path="/" element={<StartPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/*" element={<StartPage />} />
     </Routes>
   );
 };

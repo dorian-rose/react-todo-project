@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 //firebase
 import { auth } from "../../config/firebaseConfig";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const LoginPage = () => {
-  //const auth = getAuth();
-  const { user, setUser } = useContext(UserContext);
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
@@ -38,15 +36,8 @@ export const LoginPage = () => {
         userInfo.email,
         userInfo.password
       );
-      setUser({ userDetails: userCredential.user, userName: userInfo.name });
-      navigate("/home");
-      // .then((userCredential) => {
-      //   console.log("here");
-      //   // Signed in
-      //   const user = userCredential.user;
-      //   console.log(user);
-      //   setUser(user);
-      // })
+      setUser(user.uid);
+      navigate("/todo");
     } catch (error) {
       if (error.code === "auth/wrong-password") {
         setErrors("Wrong password", "error");

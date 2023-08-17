@@ -1,14 +1,12 @@
 import { UserProvider } from "./context/UserProvider";
 import { AppRouter } from "./routes/AppRouter";
-import { NavBar } from "./todo/components/NavBar";
+import { FooterComp } from "./ui/FooterComp";
 
 function App() {
   return (
     <>
-      <header className="bg-dark txt-cntr pd-md">Practice TodoList</header>
+      <header>Practice TodoList</header>
       <UserProvider>
-        <NavBar />
-
         <main>
           <AppRouter />
           {/* <Routes> */}
@@ -21,7 +19,7 @@ function App() {
           {/* </Routes> */}
         </main>
       </UserProvider>
-      <footer className="bg-dark txt-cntr">Footer</footer>
+      <FooterComp />
     </>
   );
 }
