@@ -1,12 +1,17 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { HomePage, ServicesPage, TodoPage } from "../todo/pages";
+import { HomePage, NewTodoPage, TodoPage } from "../todo/pages";
+import { NavBar } from "../todo/components/NavBar";
 
 export const TodoRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/todo" element={<TodoPage />} />
-      <Route path="/services" element={<ServicesPage />} />
-    </Routes>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<TodoPage />} />
+        <Route path="/new" element={<NewTodoPage />} />
+
+        <Route path="/*" element={<Navigate to={"/"} />} />
+      </Routes>
+    </>
   );
 };

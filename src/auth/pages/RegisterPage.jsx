@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 //firebase
 import { auth } from "../../config/firebaseConfig";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 export const RegisterPage = () => {
   const { user, setUser } = useContext(UserContext);
@@ -34,12 +38,12 @@ export const RegisterPage = () => {
     console.log(userInfo.email, userInfo.password);
     //const auth = getAuth();
     try {
-      const userCredential = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         userInfo.email,
         userInfo.password
       );
-      setUser(userCredential.user);
+      await updateProfile(auth.currentUser, { displayName: userInfo.name });
       navigate("/home");
       // .then((userCredential) => {
       //   console.log("here");

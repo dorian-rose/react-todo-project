@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:300, 400, 700);
+@import url(https://fonts.googleapis.com/icon?family=Material + Icons);
+
 * {
   margin: 0;
   padding: 0;
@@ -6,43 +13,31 @@
   font-weight: 500;
 }
 
-.title {
-  text-align: center;
-  padding: 20px;
-  font-size: 24px;
+body {
+  background-color: #f9fcf5;
 }
 
-.pd-md {
-  text-align: center;
-  font-size: 38px;
-  font-weight: 600;
-  background-color: green;
-  padding: 20px;
-  color: white;
+/* tick */
+.checkbox-tick {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: white;
+  border: 2px solid transparent;
+  border-left: none;
+  border-top: none;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  position: relative;
+  top: -1px;
+  left: 2px;
 }
 
-.bg-dark {
-  text-align: center;
-  background-color: green;
-  padding: 10px;
-  color: white;
+.tick-visible {
+  visibility: visible;
 }
 
-.text-centre {
-  text-align: center;
-}
-
-.login {
-  display: block;
-  width: fit-content;
-  margin: 30px auto;
-}
-
-footer {
-  margin-top: 40px;
-}
-
-form {
+/* ====FORMS===== */
+/* form {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -54,9 +49,13 @@ input[type="password"] {
   padding: 15px;
   margin-left: 20px;
   margin-right: 20px;
+  border: 1px solid var(--border-color);
 }
 
-.login-form input,
+input[type="submit"] {
+  width: fit-content;
+}
+
 .login-form input,
 .login-form button {
   max-width: fit-content;
@@ -72,125 +71,131 @@ textarea {
   padding-bottom: 60px;
   margin-left: 20px;
   margin-right: 20px;
+  border: 1px solid var(--border-color);
 }
 
 p.error-message {
   margin: 20px;
+} */
+
+/* 
+.calendar .header {
+  border-bottom: 1px solid var(--border-color);
 }
 
-/* component Entry */
-article {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid rgb(193, 197, 193);
-  border-radius: 5px;
-  margin: 0 20px;
-  padding: 5px;
+.calendar .header .icon {
+  cursor: pointer;
+  transition: 0.15s ease-out;
 }
 
-button {
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: rgb(29, 129, 29);
-  border-radius: 5px;
-  border: solid green;
-  color: white;
-}
-button.delete-button {
-  background-color: red;
-  border: solid red;
+.calendar .header .icon:hover {
+ 
+  transition: 0.25s ease-out;
+  color: var(--main-color);
 }
 
-button.true {
-  border: solid rgb(133, 135, 133);
-  background-color: rgb(133, 135, 133);
-}
-h3 {
-  display: inline;
-  margin: 10px;
-  font-weight: 600;
-}
-h3.true,
-p.true {
-  color: rgb(133, 135, 133);
+.calendar .header .icon:first-of-type {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
-.task p {
-  display: inline;
-  margin: 10px 0;
-}
-
-h2 {
-  font-size: 24px;
-  margin: 20px 20px 10px 20px;
-}
-
-.isActive {
-  color: rgb(29, 129, 29);
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  justify-content: center;
-  text-decoration: none;
-}
-
-li {
-  padding: 20px 40px;
-  text-decoration: none;
-}
-
-li a {
-  color: grey;
-  text-decoration: none;
-}
-
-/* Menu */
-/* nav {
-  z-index: 7;
-  position: fixed;
-  width: 100%;
-}
-
-nav div {
-  display: flex;
-  justify-content: space-between;
-}
-nav div a {
-  line-height: 60px;
-  color: white;
-}
-
-nav div i {
-  font-size: 30px;
-}
-
-nav ul {
-  display: fixed;
-  width: 100%;
-  left: 100%; 
-  background-color: #f0f0f0;
-  transition: ease-in-out 0.5s;
-}
-nav button {
-  border: none;
-  font-size: 20px;
-}
-.appear {
-  left: 0;
-}
-
-nav li a {
+.calendar .days {
   display: block;
-  color: var(--dark);
-  font-weight: 300;
-  width: 100%;
-  padding: 1rem;
+  margin: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.2em;
+
+ 
+} */
+/* .calendar .days .col {
+  border-right: 1px solid var(--border-color);
+  padding-top: 1em;
+} */
+/* .calendar .days .col:last-child {
+  border-right: none;
+} */
+
+/* .calendar .body .cell {
+  position: relative;
+  height: 4em;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--neutral-color);
+  transition: 0.25s ease-out;
+  z-index: 1;
+} */
+
+/* .calendar .body .cell:hover {
+  background: var(--bg-color);
+  transition: 0.5s ease-out;
+} */
+/* 
+.calendar .body .selected {
+  border-bottom: 10px solid transparent;
+  border-image: linear-gradient(45deg, var(--main-color) 0%, #53cbf1 40%);
+  border-image-slice: 1;
+}
+.calendar .body .today {
+  border-bottom: 10px solid transparent;
+
+  border-image: linear-gradient(45deg, var(--secondary-color), #dce3df 40%);
+  border-image-slice: 1;
+} */
+/* .calendar .body .row {
+  border-bottom: 1px solid var(--border-color);
+} */
+
+/* .calendar .body .row:last-child {
+  border-bottom: none;
+} */
+
+/* .calendar .body .cell:last-child {
+  border-right: none;
+} */
+
+/* .calendar .body .cell .number {
+  position: absolute;
+  font-size: 82.5%;
+  line-height: 1;
+  top: 3em;
+  right: 3em;
+  font-weight: 400;
+} */
+
+/* .calendar .body .disabled {
+  color: var(--text-color-light);
+  pointer-events: none;
+} */
+
+/* .calendar .body .cell .bg {
+  font-weight: 700;
+  line-height: 1;
+  color: var(--main-color);
+  opacity: 0;
+  font-size: 8em;
+  position: absolute;
+  top: -0.5em;
+  right: -0.05em;
+  transition: 0.25s ease-out;
+  letter-spacing: -0.07em;
 }
 
-nav li a:hover {
-  background-color: var(--dark);
-  color: var(--light);
+.calendar .body .cell:hover .bg,
+.calendar .body .selected .bg {
+  opacity: 0.05;
+  transition: 0.5s ease-in;
+  z-index: 10;
+} */
+/* .calendar .body .cell.today .bg {
+  color: var(--secondary-color);
+  opacity: 0.05;
+} */
+
+/* .calendar .body .col {
+  flex-grow: 0;
+  flex-basis: calc(100% / 7);
+  width: calc(100% / 7);
 } */

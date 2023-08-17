@@ -34,11 +34,7 @@ export const LoginGoogle = () => {
         console.log(user);
         //set to state
 
-        setUser({
-          token: user.accessToken,
-          email: user.email,
-          uid: user.uid,
-        });
+        setUser(user.uid);
       })
 
       .catch((error) => {

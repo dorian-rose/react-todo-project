@@ -1,12 +1,13 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../../context/UserContext";
+import { getAuth } from "firebase/auth";
 
 export const HomePage = () => {
-  const { user } = useContext(UserContext);
+  //get user
+  const auth = getAuth();
+  const user = auth.currentUser;
   return (
     <>
       <h1 className="title">Homepage</h1>
-      <h2 className="text-center">Welcome, {user?.name}</h2>
+      <h2 className="text-center">Welcome, {user.displayName}</h2>
     </>
   );
 };
