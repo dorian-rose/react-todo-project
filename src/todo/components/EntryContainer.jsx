@@ -32,6 +32,7 @@ export const EntryContainer = () => {
   //reset title and dispatch to fetch on change of "date"
 
   useEffect(() => {
+    //set text of title button
     if (date === today || !date) {
       dispatch(setTitle("Tareas de hoy"));
     } else {
@@ -39,9 +40,9 @@ export const EntryContainer = () => {
       const day = string[0];
       dispatch(setTitle(`Tareas de ${day}`));
     }
-    //make fetch/dispatch
-    // if (date !== "") {
-    if (!showAll) {
+
+    //determine if all tasks are shown or just one date
+    if (showAll === "date") {
       const body = { taskDate: date, uid: user.uid };
       const method = "POST";
       const url = `${import.meta.env.VITE_TASK_URL}/date`;
@@ -51,23 +52,23 @@ export const EntryContainer = () => {
       const url = `${import.meta.env.VITE_TASK_URL}/user/${user.uid}`;
       dispatch(getTasks(url, method));
     }
-  }, [date, showAll]);
+  }, [date]);
 
   return (
     <section className="mb-28">
-      <div className="flex justify-between mx-7 my-5">
+      <div className="flex justify-between mx-7 my-5 max-w-xl sm:my-10 sm:mx-auto">
         <button
           className={`hover:text-primary 
           ${
-            showAll
-              ? "text-secondary underline text-sm"
-              : "text-primary text-lg "
+            showAll === "all"
+              ? "text-secondary underline text-sm sm:text-lg"
+              : "text-primary text-lg hover:cursor-default sm:text-2xl"
           }`}
           onClick={() => {
             {
               date ? dispatch(setDate(date)) : dispatch(setDate(today));
             }
-            dispatch(setShowAll(false));
+            dispatch(setShowAll("date"));
           }}
         >
           {title}
@@ -75,13 +76,13 @@ export const EntryContainer = () => {
         <button
           className={` hover:text-primary 
           ${
-            showAll
-              ? "text-primary text-lg "
-              : "text-sm text-secondary underline"
+            showAll === "all"
+              ? "text-primary text-lg hover:cursor-default sm:text-2xl"
+              : "text-sm text-secondary underline sm:text-lg"
           }`}
           onClick={() => {
             dispatch(setDate(""));
-            dispatch(setShowAll(true));
+            dispatch(setShowAll("all"));
           }}
         >
           Mostrar todas las tareas
@@ -89,6 +90,12 @@ export const EntryContainer = () => {
       </div>
 
       {isLoading && <p className="absolute top-48 left-48">Loading...</p>}
+      {showAll === "search" && (
+        <h3 className="italic mx-7 text-secondary text-sm">
+          Resultados de la búsqueda:
+        </h3>
+      )}
+
       {ok == false ? (
         <p className="text-center w-fit m-auto my-5 italic text-alert border border-1 border-alert p-3 rounded-lg">
           {msg}

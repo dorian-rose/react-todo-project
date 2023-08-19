@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../store/slice/tasks/taskThunk";
 import { fetchData } from "../../helper/fetch";
-import { useState } from "react";
 
 export const ToggleButton = ({ todo }) => {
   //collect date from redux

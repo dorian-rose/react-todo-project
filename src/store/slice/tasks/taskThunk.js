@@ -8,9 +8,7 @@ import { fetchData } from "../../../helper/fetch"
  * @param {Object} [body] body of fetch providing data to endpoint
  */
 export const getTasks = (url, method, body) => {
-    console.log("body in getTasks", body)
-    console.log("url in getTasks", url)
-    console.log("method in getTasks", method)
+
     return async (dispatch, getState) => {
 
         dispatch(startLoadingTasks())

@@ -1,11 +1,5 @@
-import { useState, useContext } from "react";
-import { UserContext } from "../../context/UserContext";
-
 import { auth } from "../../config/firebaseConfig";
-//import { useDispatch, useSelector } from "react-redux";
-//import { setUser } from "../../store/slice/users/userSlice";
-//import firebase from "firebase/app";
-//import "firebase/auth";
+
 import {
   getAuth,
   signInWithPopup,
@@ -15,7 +9,7 @@ import {
 } from "firebase/auth";
 
 export const LoginGoogle = () => {
-  const { user, setUser } = useContext(UserContext);
+
 
   const provider = new GoogleAuthProvider();
   //const auth = getAuth();

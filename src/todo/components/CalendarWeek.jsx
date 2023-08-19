@@ -26,14 +26,11 @@ export const CalendarWeek = () => {
 
   //function to change week
   const changeWeekHandle = (btnType) => {
-    //console.log("current week", currentWeek);
     if (btnType === "prev") {
-      //console.log(subWeeks(currentMonth, 1));
       setCurrentMonth(subWeeks(currentMonth, 1));
       setCurrentWeek(getWeek(subWeeks(currentMonth, 1)));
     }
     if (btnType === "next") {
-      //console.log(addWeeks(currentMonth, 1));
       setCurrentMonth(addWeeks(currentMonth, 1));
       setCurrentWeek(getWeek(addWeeks(currentMonth, 1)));
     }
@@ -41,13 +38,13 @@ export const CalendarWeek = () => {
 
   const renderFooter = () => {
     return (
-      <div className="block w-full flex justify-between">
-        <button className="pb-4" onClick={() => changeWeekHandle("prev")}>
+      <div className="block w-full flex justify-between max-w-lg m-auto">
+        <button className="pb-4 " onClick={() => changeWeekHandle("prev")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="#4C4117"
-            className="w-6 h-6"
+            className="w-6 h-6 hover:border hover:border-1 hover:border-primary hover:rounded-full sm:w-10 sm:h-10"
           >
             <path
               fillRule="evenodd"
@@ -58,7 +55,6 @@ export const CalendarWeek = () => {
         </button>
 
         <CalendarDates
-         
           currentMonth={currentMonth}
           currentWeek={currentWeek}
           selectedDate={selectedDate}
@@ -70,7 +66,7 @@ export const CalendarWeek = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="#4C4117"
-            className="w-6 h-6"
+            className="w-6 h-6 hover:border hover:border-1 hover:border-primary hover:rounded-full sm:w-10 sm:h-10"
           >
             <path
               fillRule="evenodd"

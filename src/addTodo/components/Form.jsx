@@ -16,7 +16,8 @@ export const Form = () => {
 
   //configure usestates
   const [datePick, setDatePick] = useState(new Date());
-  const [errors, setErrors] = useState("");
+  const [todoError, setTodoError] = useState("");
+  const [descError, setDescError] = useState("");
 
   //define  method and url for fetch
   const url = import.meta.env.VITE_TASK_URL;
@@ -26,7 +27,8 @@ export const Form = () => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-    setErrors([]);
+    setTodoError("");
+    setDescError("");
     //format date
     const formattedDate = format(datePick, "EEE dd MMM yy");
     // const taskDate = formattedDate.replaceAll(" ", "_");
@@ -38,12 +40,15 @@ export const Form = () => {
       done: false,
       taskDate: formattedDate,
     };
-    console.log("date in form", formattedDate);
-    if (newTodo.todo == "") {
-      setErrors("Rellena el título");
-      return;
-    } else if (newTodo.description == "") {
-      setErrors("Rellena la descripción");
+
+    if (newTodo.todo == "" || newTodo.description == "") {
+      if (newTodo.todo == "") {
+        setTodoError("Rellena el título");
+      }
+      if (newTodo.description == "") {
+        setDescError("Rellena la descripción");
+      }
+
       return;
     }
     await fetchData(url, method, newTodo);
@@ -56,25 +61,41 @@ export const Form = () => {
 
   return (
     <>
-      <form className="" onSubmit={handleSubmit}>
+      <h1 className="mt-16 mb-7 text-primary text-lg text-center sm:text-xl">
+        <span className="bg-primary text-tertiary px-1.5 me-2 rounded-full">
+          +
+        </span>{" "}
+        Añadir nueva tarea
+      </h1>
+      <form onSubmit={handleSubmit}>
         <input
-          className="block mt-5 border border-1 bg-red-500"
+          className="w-10/12 m-auto block border border-1 border-lines rounded-3xl px-4 py-2 focus:outline-none focus:border-primary "
           type="text"
           id="tarea"
           name="tarea"
           placeholder="Tarea"
         />
-
+        {todoError && (
+          <p className="text-center italic text-alert ">{todoError}</p>
+        )}
         <textarea
-          className="w-fit bg-blue-500 block mt-20 border border-1"
+          className="w-10/12 m-auto mt-4 block border border-1 border-lines rounded-3xl px-4 py-2 focus:outline-none focus:border-primary "
           name="description"
           id="description"
           placeholder="Descripción de la tarea"
         ></textarea>
+        {descError && (
+          <p className="text-center italic text-alert ">{descError}</p>
+        )}
         <DayPick setDatePick={setDatePick} datePick={datePick} />
-        <button type="submit">Añadir</button>
+
+        <button
+          className="text-primary text-lg m-auto block sm:text-xl sm:px-4 sm:mt-6 border border-1 border-primary rounded-full px-2 mt-4 hover:text-secondary hover:border-secondary"
+          type="submit"
+        >
+          Añadir
+        </button>
       </form>
-      <p className="error-message">{errors}</p>
     </>
   );
 };

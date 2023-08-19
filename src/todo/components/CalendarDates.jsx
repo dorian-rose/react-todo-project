@@ -26,7 +26,7 @@ export const CalendarDates = ({
 
   //function on click of date
   const onDateClickHandle = (day, dayStr) => {
-    dispatch(setShowAll(false));
+    dispatch(setShowAll("date"));
     //insert filter function here
     setSelectedDate(day);
     console.log(dayStr);
@@ -38,7 +38,7 @@ export const CalendarDates = ({
       formattedDate = format(day, dateFormat);
       const cloneDay = day;
       days.push(
-        <div
+        <button
           className="grow mx-2 max-w-full ease-in text-xs"
           key={day}
           onClick={() => {
@@ -47,29 +47,29 @@ export const CalendarDates = ({
           }}
         >
           <div
-            className={`rounded-full flex items-center justify-center hover:cursor-pointer  w-1 px-3 py-1 m-auto ${
+            className={`rounded-full flex items-center justify-center hover:cursor-pointer  w-1 px-3 py-1 m-auto sm:w-2 sm:px-4 sm:py-2 ${
               isSameDay(day, new Date())
                 ? "bg-tertiary border border-1 border-primary text-primary hover:text-secondary hover:border-secondary"
                 : isSameDay(day, selectedDate)
-                ? "bg-primary text-tertiary px-4 py-1 text-base "
+                ? "bg-primary text-tertiary px-4 py-1 text-base sm:px-5 -top-2 relative"
                 : "bg-secondary text-tertiary hover:bg-primary hover:text-tertiary "
             }`}
           >
             {formattedDate}
           </div>
           <span
-            className={`flex items-center justify-center 
+            className={`flex items-center justify-center sm:text-base
           ${
             isSameDay(day, new Date())
               ? "text-primary my-5"
               : isSameDay(day, selectedDate)
-              ? "text-primary text-base my-2"
+              ? "text-primary text-base my-2 sm:text-lg"
               : "text-secondary my-5"
           }`}
           >
             {weekDays[i]}
           </span>
-        </div>
+        </button>
       );
       day = addDays(day, 1);
     }

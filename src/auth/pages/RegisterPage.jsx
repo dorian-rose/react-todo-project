@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState,  } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+
 //firebase
 import { auth } from "../../config/firebaseConfig";
 import {
@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 
 export const RegisterPage = () => {
-  const { user, setUser } = useContext(UserContext);
+  
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 

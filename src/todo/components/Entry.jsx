@@ -12,21 +12,25 @@ export const Entry = ({ todo }) => {
           <div className="ms-3">
             <h3
               className={
-                todo.done ? "line-through text-lines" : "text-secondary"
+                todo.done
+                  ? "line-through text-lines sm:text-xl"
+                  : "text-secondary sm:text-xl"
               }
             >
               {todo.todo}
             </h3>
             <p
               className={`text-sm ${
-                todo.done ? "line-through text-lines" : "text-secondary"
+                todo.done
+                  ? "line-through text-lines sm:text-lg"
+                  : "text-secondary sm:text-lg"
               }`}
             >
               {todo.description}
             </p>
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col me-2">
           <DeleteButton key={todo._id + 1} todo={todo} />
           <button>
             <svg

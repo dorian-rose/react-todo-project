@@ -8,56 +8,56 @@ import { auth } from "../../config/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const StartPage = () => {
-  const [errors, setErrors] = useState("");
-  const navigate = useNavigate();
+  // const [errors, setErrors] = useState("");
+  // const navigate = useNavigate();
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
-    setErrors([]);
+  // const handleSubmit = async (ev) => {
+  //   ev.preventDefault();
+  //   setErrors([]);
 
-    const userInfo = {
-      name: ev.target.name.value,
-      email: ev.target.email.value,
-      password: ev.target.password.value,
-    };
+  //   const userInfo = {
+  //     name: ev.target.name.value,
+  //     email: ev.target.email.value,
+  //     password: ev.target.password.value,
+  //   };
 
-    //validate that not empty
-    if (userInfo.email == "") {
-      setErrors("Inserte email");
-      return;
-    } else if (userInfo.password == "") {
-      setErrors("Inserte contraseña");
-      return;
-    }
+  //   //validate that not empty
+  //   if (userInfo.email == "") {
+  //     setErrors("Inserte email");
+  //     return;
+  //   } else if (userInfo.password == "") {
+  //     setErrors("Inserte contraseña");
+  //     return;
+  //   }
 
-    //login
+  //   //login
 
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        userInfo.email,
-        userInfo.password
-      );
-      setUser(user.uid);
-      navigate("/home");
-      // .then((userCredential) => {
-      //   console.log("here");
-      //   // Signed in
-      //   const user = userCredential.user;
-      //   console.log(user);
-      //   setUser(user);
-      // })
-    } catch (error) {
-      if (error.code === "auth/wrong-password") {
-        setErrors("Wrong password", "error");
-      } else if (error.code === "auth/user-not-found") {
-        setErrors("User not found", "error");
-      } else {
-        setErrors("Something went wrong");
-        console.log("Something went wrong", error);
-      }
-    }
-  };
+  //   try {
+  //     const userCredential = await signInWithEmailAndPassword(
+  //       auth,
+  //       userInfo.email,
+  //       userInfo.password
+  //     );
+  //     setUser(user.uid);
+  //     navigate("/home");
+  //     // .then((userCredential) => {
+  //     //   console.log("here");
+  //     //   // Signed in
+  //     //   const user = userCredential.user;
+  //     //   console.log(user);
+  //     //   setUser(user);
+  //     // })
+  //   } catch (error) {
+  //     if (error.code === "auth/wrong-password") {
+  //       setErrors("Wrong password", "error");
+  //     } else if (error.code === "auth/user-not-found") {
+  //       setErrors("User not found", "error");
+  //     } else {
+  //       setErrors("Something went wrong");
+  //       console.log("Something went wrong", error);
+  //     }
+  //   }
+  // };
 
   return (
     <>
