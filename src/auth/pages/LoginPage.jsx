@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
+import { AccessForm } from "../components/AccessForm";
+import { LoginGoogle } from "../components/LoginGoogle";
+import { FooterSignIn } from "../../ui/FooterSignIn";
 //firebase
 import { auth } from "../../config/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -9,7 +11,7 @@ export const LoginPage = () => {
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (ev) => {
+  const enterUser = async (ev) => {
     ev.preventDefault();
     setErrors([]);
 
@@ -36,7 +38,7 @@ export const LoginPage = () => {
         userInfo.email,
         userInfo.password
       );
-      setUser(user.uid);
+      // setUser(user.uid);
       navigate("/todo");
     } catch (error) {
       if (error.code === "auth/wrong-password") {
@@ -52,18 +54,27 @@ export const LoginPage = () => {
 
   return (
     <>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input type="text" id="name" name="name" placeholder="Nombre" />
-        <input type="text" id="email" name="email" placeholder="Email" />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Contraseña"
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>{errors}</p>
+      <section>
+        <h1 className="mb-10 mt-20 text-center text-primary text-2xl font-thin ">
+          Bienvenido de nuevo!
+        </h1>
+        <article>
+          <AccessForm enterUser={enterUser} nameHidden={true} />
+        </article>
+        <article className="mx-4 mt-20 border-t border-slate">
+          <p className="relative -top-3 left-1/2 -translate-x-1/2 bg-tertiary w-fit px-2 text-sm text-lines ">
+            Regístrate con
+          </p>
+          <LoginGoogle />
+          <p className="mt-10 text-sm text-lines text-center font-thin">
+            Aún no tienes una cuenta?{" "}
+            <Link to="/register" className="font-bold">
+              Regístrate
+            </Link>
+          </p>
+        </article>
+        <FooterSignIn />
+      </section>
     </>
   );
 };

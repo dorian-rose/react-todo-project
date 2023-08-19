@@ -14,6 +14,10 @@ export const HeaderComp = () => {
       const nameArray = user.email.split("@");
       const newName = nameArray[0];
       user.displayName = newName;
+    } else {
+      const nameArray = user.displayName.split(" ");
+      const firstName = nameArray[0];
+      user.displayName = firstName;
     }
 
     //define time

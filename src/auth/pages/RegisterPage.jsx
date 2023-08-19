@@ -1,57 +1,23 @@
-import { useState,  } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AccessForm } from "../components/AccessForm";
 
 //firebase
 import { auth } from "../../config/firebaseConfig";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { FooterSignIn } from "../../ui/FooterSignIn";
+import { LoginGoogle } from "../components/LoginGoogle";
 
 export const RegisterPage = () => {
-  
-  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
-    setErrors([]);
-
-    //collect details
-    const userInfo = {
-      name: ev.target.name.value,
-      email: ev.target.email.value,
-      password: ev.target.password.value,
-    };
-
-    //validate that not empty
-    if (userInfo.email == "") {
-      setErrors("Inserte email");
-      return;
-    } else if (userInfo.password == "") {
-      setErrors("Inserte contraseña");
-      return;
-    }
-
+  const enterUser = async (data) => {
     //register
-    console.log(userInfo.email, userInfo.password);
-    //const auth = getAuth();
+
     try {
-      await createUserWithEmailAndPassword(
-        auth,
-        userInfo.email,
-        userInfo.password
-      );
-      await updateProfile(auth.currentUser, { displayName: userInfo.name });
-      navigate("/home");
-      // .then((userCredential) => {
-      //   console.log("here");
-      //   // Signed in
-      //   const user = userCredential.user;
-      //   console.log(user);
-      //   setUser(user);
-      // })
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      await updateProfile(auth.currentUser, { displayName: data.name });
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setErrors("Email already in use", error);
@@ -63,27 +29,31 @@ export const RegisterPage = () => {
         setErrors("Something went wrong", error);
       }
     }
-    // .catch((error) => {
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   setErrors(errorMessage);
-    // });
   };
 
   return (
     <>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input type="text" id="name" name="name" placeholder="Nombre" />
-        <input type="text" id="email" name="email" placeholder="Email" />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Contraseña"
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>{errors}</p>
+      <section>
+        <h1 className="mb-6 mt-20 text-center text-primary text-2xl font-thin ">
+          Bienvenido!
+        </h1>
+        <article>
+          <AccessForm enterUser={enterUser} nameHidden={false} />
+        </article>
+        <article className="mx-4 mt-10 border-t border-slate">
+          <p className="relative -top-3 left-1/2 -translate-x-1/2 bg-tertiary w-fit px-2 text-sm text-lines ">
+            Regístrate con
+          </p>
+          <LoginGoogle />
+          <p className="mt-10 text-sm text-center text-lines font-thin">
+            Ya tienes una cuenta?{" "}
+            <Link to="/login" className="font-bold">
+              Login
+            </Link>
+          </p>
+        </article>
+        <FooterSignIn />
+      </section>
     </>
   );
 };
