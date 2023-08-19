@@ -9,7 +9,8 @@ module.exports = {
         'lines': '#777',
         'tertiary': '#F9FCF5',
         'alert': '#781313',
-        'shadow': '#F5F2E8'
+        'shadow': '#F5F2E8',
+        'primaryLight': '#F9E17E'
 
       }
     },

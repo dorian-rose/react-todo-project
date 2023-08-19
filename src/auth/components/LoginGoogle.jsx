@@ -1,4 +1,5 @@
 import { auth } from "../../config/firebaseConfig";
+import google from "../../assets/google.png";
 
 import {
   getAuth,
@@ -9,8 +10,6 @@ import {
 } from "firebase/auth";
 
 export const LoginGoogle = () => {
-
-
   const provider = new GoogleAuthProvider();
   //const auth = getAuth();
   //const dispatch = useDispatch();
@@ -43,8 +42,11 @@ export const LoginGoogle = () => {
       });
   };
   return (
-    <button className="login bg-dark" onClick={loginWithGoogle}>
-      Login with Google
+    <button
+      className="block m-auto w-12 hover:w-14 mt-4 shadow-md p-2 rounded-full"
+      onClick={loginWithGoogle}
+    >
+      <img className="w-full" src={google} alt="google logo" />
     </button>
   );
 };

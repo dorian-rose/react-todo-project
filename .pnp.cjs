@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-datepicker", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:4.16.0"],\
             ["react-dom", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:18.2.0"],\
+            ["react-hook-form", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:7.45.4"],\
             ["react-redux", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:8.1.1"],\
             ["react-router-dom", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:6.10.0"],\
             ["redux", "npm:4.2.1"],\
@@ -4008,6 +4009,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-hook-form", [\
+        ["npm:7.45.4", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.45.4-74d7882b08-1d84c78dad.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.45.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:7.45.4", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-26edf38a1c/0/cache/react-hook-form-npm-7.45.4-74d7882b08-1d84c78dad.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:7.45.4"],\
+            ["@types/react", "npm:18.0.37"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -4625,6 +4648,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-datepicker", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:4.16.0"],\
             ["react-dom", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:18.2.0"],\
+            ["react-hook-form", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:7.45.4"],\
             ["react-redux", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:8.1.1"],\
             ["react-router-dom", "virtual:54899499e74f87292d4a61c3e596b8d945c9fc6c99526074a7e4566ef3dab3f9994ee9dc4c67e05461e9f40c27d8f44b044921d1304e6f2be97642672babc1cd#npm:6.10.0"],\
             ["redux", "npm:4.2.1"],\
