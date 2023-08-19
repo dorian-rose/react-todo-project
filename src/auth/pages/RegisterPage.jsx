@@ -9,6 +9,7 @@ import { FooterSignIn } from "../../ui/FooterSignIn";
 import { LoginGoogle } from "../components/LoginGoogle";
 
 export const RegisterPage = () => {
+  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
   const enterUser = async (data) => {
