@@ -1,10 +1,13 @@
 import { fetchData } from "../../helper/fetch";
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../store/slice/tasks/taskThunk";
-import { useEffect } from "react";
 
 export const DeleteButton = ({ todo }) => {
+  //collect date from redux
+  const { date } = useSelector((state) => state.date);
+
   const dispatch = useDispatch();
+
   const handleDeleteTodo = async () => {
     const body = { _id: todo._id };
     console.log("body", body);
@@ -12,7 +15,18 @@ export const DeleteButton = ({ todo }) => {
     const urlGet = `${import.meta.env.VITE_TASK_URL}/user/${todo.uid}`;
     const method = "DELETE";
     await fetchData(url, method, body);
-    dispatch(getTasks(urlGet, "GET"));
+
+    //get updated todos:
+    if (date !== "") {
+      const newBody = { taskDate: date, uid: todo.uid };
+      const newMethod = "POST";
+      const newUrl = `${import.meta.env.VITE_TASK_URL}/date`;
+      dispatch(getTasks(newUrl, newMethod, newBody));
+    } else {
+      const newMethod = "GET";
+      const newUrl = `${import.meta.env.VITE_TASK_URL}/user/${todo.uid}`;
+      dispatch(getTasks(newUrl, newMethod));
+    }
   };
   return (
     <button onClick={() => handleDeleteTodo()}>

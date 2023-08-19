@@ -4,7 +4,7 @@ export const displaySlice = createSlice({
 
     name: 'display',
     initialState: {
-        showAll: false,
+        showAll: "date",
 
 
     },
