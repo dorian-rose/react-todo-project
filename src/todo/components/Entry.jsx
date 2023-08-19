@@ -1,9 +1,12 @@
 //import { useTodoList } from "../hooks/useTodoList";
 
+import { UpdateButton } from "./UpdateButton";
 import { DeleteButton } from "./DeleteButton";
 import { ToggleButton } from "./ToggleButton";
+import { useState } from "react";
 
 export const Entry = ({ todo }) => {
+  const [showUpdate, setShowUpdate] = useState(false);
   return (
     <>
       <article className="flex justify-between border border-1 border-lines rounded-3xl mx-5 mt-4 p-2">
@@ -30,16 +33,16 @@ export const Entry = ({ todo }) => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col me-2">
+        <div className="flex flex-col justify-between sm:py-1.5 me-2">
           <DeleteButton key={todo._id + 1} todo={todo} />
-          <button>
+          <button onClick={() => setShowUpdate(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 text-primary"
+              className="w-5 h-5 text-primary hover:text-secondary"
             >
               <path
                 strokeLinecap="round"
@@ -50,6 +53,11 @@ export const Entry = ({ todo }) => {
           </button>
         </div>
       </article>
+      <UpdateButton
+        showUpdate={showUpdate}
+        setShowUpdate={setShowUpdate}
+        todo={todo}
+      />
     </>
   );
 };

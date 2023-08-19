@@ -33,7 +33,7 @@ export const RegisterPage = () => {
 
   return (
     <>
-      <section>
+      <section className="max-w-2xl m-auto">
         <h1 className="mb-6 mt-20 text-center text-primary text-2xl font-thin ">
           Bienvenido!
         </h1>
@@ -47,7 +47,10 @@ export const RegisterPage = () => {
           <LoginGoogle />
           <p className="mt-10 text-sm text-center text-lines font-thin">
             Ya tienes una cuenta?{" "}
-            <Link to="/login" className="font-bold">
+            <Link
+              to="/login"
+              className="font-bold hover:text-secondary hover:underline"
+            >
               Login
             </Link>
           </p>
