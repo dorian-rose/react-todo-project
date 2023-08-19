@@ -23,12 +23,13 @@ export const LoginPage = () => {
       // setUser(user.uid);
       navigate("/todo");
     } catch (error) {
-      if (error.code === "auth/wrong-password") {
-        setErrors("Wrong password", "error");
-      } else if (error.code === "auth/user-not-found") {
-        setErrors("User not found", "error");
+      if (
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/user-not-found"
+      ) {
+        setErrors("Usuario o contraseña no correcto");
       } else {
-        setErrors("Something went wrong");
+        setErrors("Algo no funciona, inténtalo de nuevo");
         console.log("Something went wrong", error);
       }
     }
@@ -42,6 +43,9 @@ export const LoginPage = () => {
         </h1>
         <article>
           <AccessForm enterUser={enterUser} nameHidden={true} />
+          <p className="text-alert text-sm font-thin text-center mt-4">
+            {errors}
+          </p>
         </article>
         <article className="mx-4 mt-20 border-t border-slate">
           <p className="relative -top-3 left-1/2 -translate-x-1/2 bg-tertiary w-fit px-2 text-sm text-lines ">

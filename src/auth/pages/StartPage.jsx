@@ -22,7 +22,7 @@ export const StartPage = () => {
               to="/register"
               className="px-18 py-5 sm:pt-5 sm:pb-10 ml-3 text-secondary  text-center rounded-l-full shadow-lg w-full hover:bg-primaryLight hover:text-tertiary"
             >
-              Sign up
+              Registrar
             </Link>
           </div>
         </article>
