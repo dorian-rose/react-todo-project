@@ -18,7 +18,7 @@ export const AccessForm = ({ enterUser, nameHidden }) => {
           <>
             <label
               htmlFor="name"
-              className="relative top-5 left-12 sm:left-16 bg-tertiary px-2 text-lines text-sm"
+              className="relative top-5 left-12 sm:left-20 bg-tertiary px-2 text-lines text-sm"
             >
               Nombre
             </label>
@@ -33,7 +33,7 @@ export const AccessForm = ({ enterUser, nameHidden }) => {
         )}
         <label
           htmlFor="email"
-          className="relative top-5 top-5 left-12 sm:left-16 bg-tertiary px-2 text-lines text-sm"
+          className="relative top-5 top-5 left-12 sm:left-20 bg-tertiary px-2 text-lines text-sm"
         >
           Email
         </label>
@@ -55,7 +55,7 @@ export const AccessForm = ({ enterUser, nameHidden }) => {
         </p>
         <label
           htmlFor="password"
-          className="relative top-5 top-5 left-12 sm:left-16 bg-tertiary px-2 text-lines text-sm"
+          className="relative top-5 top-5 left-12 sm:left-20 bg-tertiary px-2 text-lines text-sm"
         >
           Contraseña
         </label>

@@ -12,7 +12,7 @@ export const FooterComp = () => {
           location.pathname === "/"
             ? "py-1 px-3.5 sm:px-5 sm:py-2.5"
             : "py-2 px-2"
-        }  rounded-full text-white text-3xl bg-primary border border-4 border-tertiary  hover:border-secondary hover:bg-tertiary hover:text-secondary sm:text-4xl`}
+        }  rounded-full text-white text-3xl bg-primary border border-4 border-tertiary hover:border  hover:border-secondary hover:bg-tertiary hover:text-secondary sm:text-4xl`}
       >
         {location.pathname === "/" ? (
           "+"
@@ -23,7 +23,7 @@ export const FooterComp = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 sm:w-10 sm:h-10"
           >
             <path
               strokeLinecap="round"
