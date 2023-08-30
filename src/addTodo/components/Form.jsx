@@ -64,7 +64,7 @@ export const Form = () => {
       <h1 className="mt-16 mb-7 text-primary text-lg text-center sm:text-xl">
         <span className="bg-primary text-tertiary px-1.5 me-2 rounded-full">
           +
-        </span>{" "}
+        </span>
         Añadir nueva tarea
       </h1>
       <form onSubmit={handleSubmit}>

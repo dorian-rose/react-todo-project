@@ -26,7 +26,7 @@ export const RegisterPage = () => {
       } else if (error.code === "auth/invalid-email") {
         setErrors("Email no válido");
       } else if (error.code === "auth/weak-password") {
-        setErrors("Contraseña no segura");
+        setErrors("Contraseña no es segura");
       } else if (error.code) {
         setErrors("Algo no funciona. Inténtalo luego");
       }

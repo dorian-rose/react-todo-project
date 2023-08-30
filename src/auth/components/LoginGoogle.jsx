@@ -1,13 +1,7 @@
 import { auth } from "../../config/firebaseConfig";
 import google from "../../assets/google.png";
 
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export const LoginGoogle = () => {
   const provider = new GoogleAuthProvider();
@@ -23,11 +17,6 @@ export const LoginGoogle = () => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        console.log(user);
-        //set to state
-
-        setUser(user.uid);
       })
 
       .catch((error) => {
