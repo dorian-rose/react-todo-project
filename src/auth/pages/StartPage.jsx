@@ -14,13 +14,13 @@ export const StartPage = () => {
           <div className="flex justify-between mb-10">
             <Link
               to="/login"
-              className="px-18 py-5 sm:pt-5 sm:pb-10 me-3 text-secondary  text-center rounded-r-full shadow-lg w-full hover:bg-primaryLight hover:text-tertiary"
+              className="px-18 py-5 sm:pt-5  me-3 text-secondary  text-center rounded-r-full shadow-lg w-full hover:bg-primaryLight hover:text-tertiary"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="px-18 py-5 sm:pt-5 sm:pb-10 ml-3 text-secondary  text-center rounded-l-full shadow-lg w-full hover:bg-primaryLight hover:text-tertiary"
+              className="px-18 py-5 sm:pt-5  ml-3 text-secondary  text-center rounded-l-full shadow-lg w-full hover:bg-primaryLight hover:text-tertiary"
             >
               Registrar
             </Link>

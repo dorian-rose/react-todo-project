@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { fetchData } from "../../helper/fetch";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getTasks } from "../../store/slice/tasks/taskThunk";
 import { DayPick } from "./DayPick";
 import { format } from "date-fns";
@@ -31,7 +31,7 @@ export const Form = () => {
     setDescError("");
     //format date
     const formattedDate = format(datePick, "EEE dd MMM yy");
-    // const taskDate = formattedDate.replaceAll(" ", "_");
+
     //body
     const newTodo = {
       uid: user.uid,
@@ -55,8 +55,7 @@ export const Form = () => {
     dispatch(getTasks(urlGet, "GET"));
 
     navigate("/todo");
-    // ev.target.tarea.value = "";
-    // ev.target.description.value = "";
+    
   };
 
   return (

@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
+/**
+ * function that provides data entry fields, validates and retrieves data
+ * @param {*} props a function that sends user info to firebase and a boolean variable that decides whether name field is shown
+ * @returns jsx
+ */
 export const AccessForm = ({ enterUser, nameHidden }) => {
+  //usestates
   const [firstPassword, setFirstPassword] = useState("");
   const [passwordMatch, setPasswordMatch] = useState("");
+
   //imports from useform to capture and validate form data
   const {
     register,
@@ -11,6 +18,10 @@ export const AccessForm = ({ enterUser, nameHidden }) => {
     handleSubmit,
   } = useForm({ mode: "all" });
 
+  /**
+   * function that receives changes to second password and compares this to first password
+   * @param {*} ev event on change of second password entry
+   */
   const comparePasswords = (ev) => {
     console.log(firstPassword);
     const secondPassword = ev.target.value;

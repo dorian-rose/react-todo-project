@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { auth } from "../../config/firebaseConfig";
 import { updateProfile } from "firebase/auth";
+import { setUser } from "../../store/slice/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const UpdateUser = ({ setShowUpdateUser }) => {
+  const dispatch = useDispatch();
   //usestates
-  const [firstPassword, setFirstPassword] = useState("");
-  const [passwordMatch, setPasswordMatch] = useState("");
+  // const [firstPassword, setFirstPassword] = useState("");
+  // const [passwordMatch, setPasswordMatch] = useState("");
   //imports from useform to capture and validate form data
   const {
     register,
@@ -15,29 +18,29 @@ export const UpdateUser = ({ setShowUpdateUser }) => {
   } = useForm({ mode: "all" });
 
   //get currentuser
-
-  const user = auth.currentUser;
+  const { displayName, photoURL } = useSelector((state) => state.user);
+  //const user = auth.currentUser;
 
   //function
-  const updateUserDetails = async ({ email, password, displayName }) => {
-    console.log(user);
+  const updateUserDetails = async ({ photoURL, displayName }) => {
     try {
-      await updateProfile(auth.currentUser, { displayName });
+      await updateProfile(auth.currentUser, { displayName, photoURL });
       setShowUpdateUser(false);
+      dispatch(setUser({ displayName, photoURL }));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const comparePasswords = (ev) => {
-    console.log(firstPassword);
-    const secondPassword = ev.target.value;
-    if (firstPassword !== secondPassword) {
-      setPasswordMatch("Contraseñas no coinciden");
-    } else {
-      setPasswordMatch("");
-    }
-  };
+  // const comparePasswords = (ev) => {
+  //   console.log(firstPassword);
+  //   const secondPassword = ev.target.value;
+  //   if (firstPassword !== secondPassword) {
+  //     setPasswordMatch("Contraseñas no coinciden");
+  //   } else {
+  //     setPasswordMatch("");
+  //   }
+  // };
   return (
     <>
       <form
@@ -63,19 +66,19 @@ export const UpdateUser = ({ setShowUpdateUser }) => {
           {...register("displayName")}
           type="text"
           className="mt-2 w-10/12 m-auto block border border-1 rounded-3xl px-4 py-2 focus:outline-none focus:border-primary "
-          defaultValue={user.displayName}
+          defaultValue={displayName}
         />
         <label
-          htmlFor="email"
+          htmlFor="photoURL"
           className="relative top-5 top-5 left-12 sm:left-20 bg-tertiary px-2 text-lines text-sm"
         >
-          Actualizar url de foto
+          Actualizar/añadir url de foto
         </label>
         <input
           {...register("photoURL")}
           type="text"
           className="mt-2 w-10/12 m-auto block border border-1 rounded-3xl px-4 py-2 focus:outline-none focus:border-primary "
-          defaultValue={user.photoURL}
+          defaultValue={photoURL}
         />
         <p className="text-center italic text-alert ">
           {errors.photoURL?.message}

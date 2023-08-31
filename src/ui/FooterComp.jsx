@@ -43,7 +43,7 @@ export const FooterComp = () => {
         <Logout />
         <article className="group flex absolute bottom-3 right-16 sm:right-1/4 ">
           <p className="ease-in-out duration-300 m-2 text-secondary opacity-0 group-hover:opacity-70">
-            Profile
+            Perfil
           </p>
           <button
             onClick={() => setShowUpdateUser(true)}

@@ -3,8 +3,8 @@ import { Form } from "../components/Form";
 
 export const NewTodoPage = () => {
   return (
-    <div>
+    <section>
       <Form />
-    </div>
+    </section>
   );
 };

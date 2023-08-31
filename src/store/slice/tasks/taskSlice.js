@@ -5,7 +5,9 @@ export const taskSlice = createSlice({
     name: 'task',
     initialState: {
         todos: [],
-        isLoading: false
+        isLoading: false,
+        ok: true,
+        msg: '',
     },
     reducers: {
         startLoadingTasks: (state) => {
