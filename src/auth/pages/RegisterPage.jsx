@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AccessForm } from "../components/AccessForm";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/slice/user/userSlice";
 //firebase
 import { auth } from "../../config/firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -10,6 +11,7 @@ import { FooterSignIn } from "../../ui/FooterSignIn";
 import { LoginGoogle } from "../components/LoginGoogle";
 
 export const RegisterPage = () => {
+  const dispatch = useDispatch();
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
@@ -18,7 +20,16 @@ export const RegisterPage = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
-      await updateProfile(auth.currentUser, { displayName: data.name });
+      if (data.name) {
+        await updateProfile(auth.currentUser, { displayName: data.name });
+      } else {
+        console.log("in if displayname");
+        const nameArray = data.email.split("@");
+        const newName = nameArray[0];
+        const displayName = newName;
+        dispatch(setUser({ displayName }));
+        await updateProfile(auth.currentUser, { displayName });
+      }
       navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -26,7 +37,7 @@ export const RegisterPage = () => {
       } else if (error.code === "auth/invalid-email") {
         setErrors("Email no válido");
       } else if (error.code === "auth/weak-password") {
-        setErrors("Contraseña no segura");
+        setErrors("Contraseña no es segura");
       } else if (error.code) {
         setErrors("Algo no funciona. Inténtalo luego");
       }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { fetchData } from "../../helper/fetch";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getTasks } from "../../store/slice/tasks/taskThunk";
 import { DayPick } from "./DayPick";
 import { format } from "date-fns";
@@ -31,7 +31,7 @@ export const Form = () => {
     setDescError("");
     //format date
     const formattedDate = format(datePick, "EEE dd MMM yy");
-    // const taskDate = formattedDate.replaceAll(" ", "_");
+
     //body
     const newTodo = {
       uid: user.uid,
@@ -55,8 +55,7 @@ export const Form = () => {
     dispatch(getTasks(urlGet, "GET"));
 
     navigate("/todo");
-    // ev.target.tarea.value = "";
-    // ev.target.description.value = "";
+    
   };
 
   return (
@@ -64,7 +63,7 @@ export const Form = () => {
       <h1 className="mt-16 mb-7 text-primary text-lg text-center sm:text-xl">
         <span className="bg-primary text-tertiary px-1.5 me-2 rounded-full">
           +
-        </span>{" "}
+        </span>
         Añadir nueva tarea
       </h1>
       <form onSubmit={handleSubmit}>
