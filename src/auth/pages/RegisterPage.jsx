@@ -4,26 +4,31 @@ import { AccessForm } from "../components/AccessForm";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slice/user/userSlice";
-//firebase
-import { auth } from "../../config/firebaseConfig";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FooterSignIn } from "../../ui/FooterSignIn";
 import { LoginGoogle } from "../components/LoginGoogle";
+//firebase imports
+import { auth } from "../../config/firebaseConfig";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
+/**
+ * function that returns jsx sign up/register options including form and on submit of form manages firebase registration with form data
+ */
 export const RegisterPage = () => {
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
+  const [errors, setErrors] = useState("");
 
+  /**
+   * function that takes user data and uses it to enter user in application using firebase create user with email and password
+   * @param {Object} data form field entries from component access form, to which component this function is passed
+   */
   const enterUser = async (data) => {
-    //register
-
     try {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
+      //set name to firebase profile -either from name field or adapted from email in its defect
       if (data.name) {
         await updateProfile(auth.currentUser, { displayName: data.name });
       } else {
-        console.log("in if displayname");
         const nameArray = data.email.split("@");
         const newName = nameArray[0];
         const displayName = newName;

@@ -3,24 +3,24 @@ import { useNavigate, Link } from "react-router-dom";
 import { AccessForm } from "../components/AccessForm";
 import { LoginGoogle } from "../components/LoginGoogle";
 import { FooterSignIn } from "../../ui/FooterSignIn";
-//firebase
+//firebase imports
 import { auth } from "../../config/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+/**
+ * function that returns jsx login options including form and on submit of form manages firebase login with form data
+ */
 export const LoginPage = () => {
-  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
+  const [errors, setErrors] = useState("");
 
+  /**
+   * function that takes user data and uses it to enter user in application using firebase sign in with email and password
+   * @param {Object} data form field entries from component access form, to which component this function is passed
+   */
   const enterUser = async (data) => {
-    //login
-
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-      // setUser(user.uid);
+      await signInWithEmailAndPassword(auth, data.email, data.password);
       navigate("/todo");
     } catch (error) {
       if (
@@ -30,7 +30,7 @@ export const LoginPage = () => {
         setErrors("Usuario o contraseña no correcto");
       } else {
         setErrors("Algo no funciona, inténtalo de nuevo");
-        console.log("Something went wrong", error);
+        console.log("error at sign in in with email and pass", error);
       }
     }
   };

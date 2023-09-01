@@ -12,7 +12,7 @@ export const fetchData = async (url, method, body) => {
 
     let options = {};
 
-    const newData = { ...body } //from body
+    const newData = { ...body } 
 
     try {
         if (method == "DELETE" || method == "POST" || method == "PUT") {

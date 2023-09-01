@@ -5,6 +5,7 @@ import { updateProfile } from "firebase/auth";
 import { setUser } from "../../store/slice/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+//commented code left in case of adding updatet password in future
 export const UpdateUser = ({ setShowUpdateUser }) => {
   const dispatch = useDispatch();
   //usestates
@@ -19,7 +20,7 @@ export const UpdateUser = ({ setShowUpdateUser }) => {
 
   //get currentuser
   const { displayName, photoURL } = useSelector((state) => state.user);
-  //const user = auth.currentUser;
+ 
 
   //function
   const updateUserDetails = async ({ photoURL, displayName }) => {

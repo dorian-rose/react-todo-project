@@ -9,7 +9,6 @@ export const HeaderComp = () => {
 
   //get time
   useEffect(() => {
-    console.log("HEADER", photoURL, displayName);
     //define time
     const now = new Date();
     const time = now.getHours();

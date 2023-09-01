@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
+/**
+ * function that returns jsx with start actions - login or sign up - and displays logo (unlogged homepage)
+ */
 export const StartPage = () => {
   return (
     <>
