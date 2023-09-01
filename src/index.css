@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+}
+
+.pd-md {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+  background-color: green;
+  padding: 20px;
+  color: white;
+}
+
+.bg-dark {
+  text-align: center;
+  background-color: green;
+  padding: 10px;
+  color: white;
+}
+
+.text-centre {
+  text-align: center;
+}
+
+.login {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+input[type="text"],
+input[type="password"] {
+  margin-bottom: 10px;
+  padding: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.login-form input,
+.login-form input,
+.login-form button {
+  max-width: fit-content;
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+textarea {
+  flex: 1;
+  margin-bottom: 10px;
+  padding: 15px;
+  padding-bottom: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+p.error-message {
+  margin: 20px;
+}
+
+/* component Entry */
+article {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(193, 197, 193);
+  border-radius: 5px;
+  margin: 0 20px;
+  padding: 5px;
+}
+
+button {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(29, 129, 29);
+  border-radius: 5px;
+  border: solid green;
+  color: white;
+}
+button.delete-button {
+  background-color: red;
+  border: solid red;
+}
+
+button.true {
+  border: solid rgb(133, 135, 133);
+  background-color: rgb(133, 135, 133);
+}
+h3 {
+  display: inline;
+  margin: 10px;
+  font-weight: 600;
+}
+h3.true,
+p.true {
+  color: rgb(133, 135, 133);
+}
+
+.task p {
+  display: inline;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 20px 20px 10px 20px;
+}
+
+.isActive {
+  color: rgb(29, 129, 29);
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+  text-decoration: none;
+}
+
+li {
+  padding: 20px 40px;
+  text-decoration: none;
+}
+
+li a {
+  color: grey;
+  text-decoration: none;
+}
+
+/* Menu */
+/* nav {
+  z-index: 7;
+  position: fixed;
+  width: 100%;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+}
+nav div a {
+  line-height: 60px;
+  color: white;
+}
+
+nav div i {
+  font-size: 30px;
+}
+
+nav ul {
+  display: fixed;
+  width: 100%;
+  left: 100%; 
+  background-color: #f0f0f0;
+  transition: ease-in-out 0.5s;
+}
+nav button {
+  border: none;
+  font-size: 20px;
+}
+.appear {
+  left: 0;
+}
+
+nav li a {
+  display: block;
+  color: var(--dark);
+  font-weight: 300;
+  width: 100%;
+  padding: 1rem;
+}
+
+nav li a:hover {
+  background-color: var(--dark);
+  color: var(--light);
+} */
