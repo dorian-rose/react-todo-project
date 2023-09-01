@@ -1,25 +1,9 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Container, Homepages, Services, LoginPage } from "./components";
-// import { Router } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
+import { AppRouter } from "./routes/AppRouter";
 
 function App() {
   return (
     <>
-      <header className="bg-dark txt-cntr pd-md">Practice TodoList</header>
-
-      <NavBar />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Homepages />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/todo" element={<Container />} />
-          <Route path="/services" element={<Services />} />
-        </Routes>
-      </main>
-
-      <footer className="bg-dark txt-cntr">Footer</footer>
+      <AppRouter />
     </>
   );
 }
