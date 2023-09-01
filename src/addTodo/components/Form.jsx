@@ -2,45 +2,53 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { fetchData } from "../../helper/fetch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../store/slice/tasks/taskThunk";
 import { DayPick } from "./DayPick";
 import { format } from "date-fns";
 
+/**
+ * function that returns form. On submit of form, makes a POST to api to create new entry using form data. Form managed manually (without react form hook) as an exercise.
+ */
 export const Form = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //get user
-  const auth = getAuth();
-  const user = auth.currentUser;
 
   //configure usestates
   const [datePick, setDatePick] = useState(new Date());
   const [todoError, setTodoError] = useState("");
   const [descError, setDescError] = useState("");
+  const [postError, setPostError] = useState("");
 
-  //define  method and url for fetch
+  //get uid from store, then define  method and url for fetch on submit
+  const { uid } = useSelector((state) => state.user);
   const url = import.meta.env.VITE_TASK_URL;
-  const urlGet = `${import.meta.env.VITE_TASK_URL}/user/${user.uid}`;
+  const urlGet = `${import.meta.env.VITE_TASK_URL}/user/${uid}`;
   const method = "POST";
 
+  /**
+   * function that collects data from form submit event, validates data and if correct, makes api POST with form data.
+   * @param {*} ev form submit event
+   */
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
     setTodoError("");
     setDescError("");
-    //format date
+
+    //format date of task received from datePick usestate hook
     const formattedDate = format(datePick, "EEE dd MMM yy");
 
-    //body
+    //configure body of POST
     const newTodo = {
-      uid: user.uid,
+      uid: uid,
       todo: ev.target.tarea.value,
       description: ev.target.description.value,
       done: false,
       taskDate: formattedDate,
     };
 
+    //handle errors - if field left blank
     if (newTodo.todo == "" || newTodo.description == "") {
       if (newTodo.todo == "") {
         setTodoError("Rellena el título");
@@ -48,14 +56,25 @@ export const Form = () => {
       if (newTodo.description == "") {
         setDescError("Rellena la descripción");
       }
-
       return;
     }
-    await fetchData(url, method, newTodo);
+
+    //make call to API to create new task
+    const taskComplete = await fetchData(url, method, newTodo);
+
+    if (!taskComplete.ok) {
+      if (taskComplete.msg) {
+        setPostError(taskComplete.msg);
+      } else {
+        setPostError(taskComplete.errores[0].msg);
+      }
+      return;
+    }
+    //update tasks in store after successful creation of new task
     dispatch(getTasks(urlGet, "GET"));
 
+    //return to to do page
     navigate("/todo");
-    
   };
 
   return (
@@ -94,6 +113,9 @@ export const Form = () => {
         >
           Añadir
         </button>
+        {postError && (
+          <p className="text-center italic text-alert mt-7 mx-5">{postError}</p>
+        )}
       </form>
     </>
   );

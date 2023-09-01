@@ -5,6 +5,7 @@ import { UpdateUser } from "../userProfile/components/UpdateUser";
 
 export const FooterComp = () => {
   const location = useLocation();
+  //boolean value that determines whether update user component rendered
   const [showUpdateUser, setShowUpdateUser] = useState(false);
 
   return (
