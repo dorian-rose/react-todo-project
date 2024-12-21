@@ -12,7 +12,6 @@ export const TodoRouter = () => {
         <Routes>
           <Route path="/" element={<TodoPage />} />
           <Route path="/new" element={<NewTodoPage />} />
-
           <Route path="/*" element={<Navigate to={"/"} />} />
         </Routes>
       </main>
