@@ -98,7 +98,12 @@ export const EntryContainer = () => {
         </button>
       </div>
 
-      {isLoading && <p className="absolute top-48 left-48">Loading...</p>}
+      {/* {isLoading && <p className="absolute top-48 left-48">Loading...</p>} */}
+      {isLoading && (
+        <div className="w-[200px] h-[200px] absolute z-[5] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <img src="https://i.gifer.com/ZKZg.gif" alt="loading gif" />
+        </div>
+      )}
       {showAll === "search" && (
         <h3 className="italic mx-7 text-secondary text-sm">
           Resultados de la búsqueda:
